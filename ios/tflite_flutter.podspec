@@ -19,10 +19,10 @@ TensorFlow Lite plugin for Flutter apps.
   # `../src/*` so that the C sources can be shared among all target platforms.
   s.source           = { :path => '.' }
   # s.source_files = 'Classes/**/*'
-  
+
   s.dependency 'Flutter'
-  
-  tflite_version = '2.12.0'
+
+  tflite_version = '2.15.0'
   s.dependency 'TensorFlowLiteSwift', tflite_version
   s.dependency 'TensorFlowLiteSwift/Metal', tflite_version
   s.dependency 'TensorFlowLiteSwift/CoreML', tflite_version
