@@ -27,12 +27,12 @@ apply plugin: 'com.android.library'
 android {
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
-    compileSdkVersion 34
+    compileSdkVersion 36
     namespace 'org.tensorflow.tflite_flutter'
 
     // Bumping the plugin ndkVersion requires all clients of this plugin to bump
     // the version in their app and to download a newer version of the NDK.
-    // ndkVersion "23.1.7779620"
+    // ndkVersion "29.0.14206865"
 
     // Invoke the shared CMake build with the Android Gradle Plugin.
     externalNativeBuild {
