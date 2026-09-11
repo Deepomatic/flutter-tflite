@@ -4,6 +4,7 @@ group 'org.tensorflow.tflite_flutter'
 version '1.0'
 
 buildscript {
+    ext.kotlin_version = '2.1.0'
     repositories {
         google()
         mavenCentral()
@@ -12,6 +13,9 @@ buildscript {
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
         classpath 'com.android.tools.build:gradle:8.13.0'
+        // Required so that `apply plugin: 'kotlin-android'` below can resolve,
+        // which in turn is what provides the `kotlinOptions` block.
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -23,6 +27,11 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+// This plugin contributes the `kotlinOptions` extension used below, and pins an
+// explicit jvmTarget. Without it, newer Flutter versions auto-apply KGP with no
+// jvmTarget, which then defaults to whatever JDK runs Gradle and breaks with
+// "Inconsistent JVM-target compatibility detected".
+apply plugin: 'kotlin-android'
 
 android {
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
